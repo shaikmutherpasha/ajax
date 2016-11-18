@@ -3,19 +3,20 @@ $('document').ready(function() {
     method: 'GET'
   }).then(function(data) {
     $.each(data, function(i, user) {
-      $('ol#list').append('<li>' + user.title +
-                          '</li>' + '<br>');
+      $('div#list').append('<h4>' + user.title +'</h4><p>' + user.body + '</p>');
     });
   });
 
   $('form').submit(function(e) {
     e.preventDefault();
     var $title = $('#title').val();
+    var $body = $('#desc').val();
     var method = 'POST';
     var url = 'http://jsonplaceholder.typicode.com/posts';
-    var data = { title: $title, body: 'foobar', userId: 1 };
+    var data = { title: $title, body: $body , userId: 1 };
     Form(method, url, data);
     $('#title').val('');
+    $('#desc').val('');
   });
 
   // POST adds a random id to the object sent
@@ -35,9 +36,11 @@ $('document').ready(function() {
 
   function callBack(method, data){
     if (method == 'POST') {
-      $('ol#list').prepend('<li>' + data.title +'</li>');
+      $('div#list').prepend('<h4>' + data.title +'</h4><p>' + data.body + '</p>');
     }else {
       console.log(data);
     }
   }
+
+  
 });

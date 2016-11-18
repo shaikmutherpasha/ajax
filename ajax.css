@@ -1,3 +1,21 @@
 .delete {
   margin-left: 5px;
 }
+.header{
+	min-height: 160px;
+	background-color: #0b2649;
+	margin-bottom: 25px;
+}
+.header h2{
+	text-align: center;
+	color: #fff;
+	padding: 5%;
+	margin: 0px
+}
+
+.button{
+	position: absolute;
+	top:2%;
+	right: 1%;
+
+}
